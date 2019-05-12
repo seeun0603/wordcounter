@@ -1,0 +1,62 @@
+<!--
+<h1>안녕?</h1>
+{{name}}
+{{text}}
+-->
+<!--키을 입력하면 value값이 나옴-->
+<!--{% for i in fruit %}
+    {{i}}
+{% endfor %}
+-->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <h1>{{text}}</h1>
+
+    <!--action 어떤 패턴으로 들어오면 어떤 패턴으로 처리해주겠다. 현재 경로에다가 action에 있는 경로이동 하겠다. method는 어떤 방식으로 전송할거인지를 나타내준다.-->
+    <form action ="{% url 'result' %}" method="GET">
+        <input type="text" name = "text"/> <!--name을 통해 텍스트라는 것을 알려준다-->
+        <button type="submit">전송 할래!!</button>
+    </form>
+  
+    <hr>
+    <ul>
+    {% for i in words %}
+      <li>{{i}}</li>
+    {% endfor %}
+    </ul>
+
+    {{wordcnt}}
+
+    <!--'단어' - '단어나온 횟수'-->
+    {% for key,value in wordcnt_item %}
+      <li>word : {{key}}, cnt: {{value}}</li>
+    {% endfor %}
+
+    <ul>
+      <li>
+        <h4><a href="{% url 'meun'%}">menu로 이동</a></h4>
+      </li>
+      <li>
+        <h4><a href="{%url 'result'%}">result로 이동</a></h4>
+      </li>
+    </ul>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
